@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://yoursite.com/classify/index/index.html</loc>
+    
+    <lastmod>2019-05-21T15:47:46.317Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/classify/index.html</loc>
+    
+    <lastmod>2019-05-21T15:30:42.399Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/03/20/test-article/</loc>
+    
+    <lastmod>2019-05-21T15:10:59.603Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/05/21/pub-sub/</loc>
+    
+    <lastmod>2019-05-21T15:00:18.514Z</lastmod>
+    
+  </url>
+  
+</urlset>
