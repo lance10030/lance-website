@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>正则学习笔记一 | Live long and prosper</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Lance">
+  <meta name="description" content="chapter1前两章强调了一个核心理念: 正则表达式是匹配模式，要么匹配字符，要么匹配位置;首先来看匹配字符">
 <meta name="keywords" content="正则">
 <meta property="og:type" content="article">
 <meta property="og:title" content="正则学习笔记一">
 <meta property="og:url" content="http://yoursite.com/2019/05/27/正则学习笔记一/index.html">
 <meta property="og:site_name" content="Live long and prosper">
-<meta property="og:description" content="Lance">
+<meta property="og:description" content="chapter1前两章强调了一个核心理念: 正则表达式是匹配模式，要么匹配字符，要么匹配位置;首先来看匹配字符">
 <meta property="og:locale" content="Ch">
-<meta property="og:updated_time" content="2019-05-27T10:42:22.410Z">
+<meta property="og:updated_time" content="2019-05-27T10:46:03.284Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则学习笔记一">
-<meta name="twitter:description" content="Lance">
+<meta name="twitter:description" content="chapter1前两章强调了一个核心理念: 正则表达式是匹配模式，要么匹配字符，要么匹配位置;首先来看匹配字符">
   
     <link rel="alternative" href="/atom.xml" title="Live long and prosper" type="application/atom+xml">
   
@@ -167,7 +167,131 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="chapter1"><a href="#chapter1" class="headerlink" title="chapter1"></a>chapter1</h1><p>前两章强调了一个核心理念: <strong>正则表达式是匹配模式，要么匹配字符，要么匹配位置</strong>;<br>首先来看匹配字符</p>
+<a id="more"></a>
+<h2 id="两种模糊匹配"><a href="#两种模糊匹配" class="headerlink" title="两种模糊匹配"></a>两种模糊匹配</h2><ol>
+<li><p>横向模糊匹配,相同的字符出现多次</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var regex = /ab&#123;2,5&#125;c/g;</span><br><span class="line">var string = &quot;abc abbc abbbc abbbbc abbbbbc abbbbbbc&quot;;</span><br><span class="line">console.log( string.match(regex) );</span><br><span class="line">// =&gt; [&quot;abbc&quot;, &quot;abbbc&quot;, &quot;abbbbc&quot;, &quot;abbbbbc&quot;]</span><br><span class="line">// 没有g只返回第一个</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>纵向模糊匹配一个字符多个不同的选择</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var regex = /a[123]b/g;</span><br><span class="line">var string = &quot;a0b a1b a2b a3b a4b&quot;;</span><br><span class="line">console.log( string.match(regex) );</span><br><span class="line">// =&gt; [&quot;a1b&quot;, &quot;a2b&quot;, &quot;a3b&quot;]</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h2><ol>
+<li><p>范围表示法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[123456abcdefGHIJKLM] [1-6a-fG-M]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>转义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">匹配&apos;a&apos;&apos;-&apos;&apos;z&apos; 任意一个字符 =&gt; [a\-z]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>取反: /[^abc]/i:除去abc之外的小写字母</p>
+</li>
+</ol>
+<h2 id="常见的简写形式"><a href="#常见的简写形式" class="headerlink" title="常见的简写形式"></a>常见的简写形式</h2><table>
+<thead>
+<tr>
+<th>字符组</th>
+<th>具体含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\d</td>
+<td>[0-9],所有数字digit </td>
+</tr>
+<tr>
+<td>\D</td>
+<td>[^0-9],除数字之外的其他字符</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>[0-9a-zA-Z_] 数字字母下划线(便捷记忆:word)</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>word 取反</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>[ \t\v\n\r\f]</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>\s 取反</td>
+</tr>
+<tr>
+<td>.</td>
+<td>通配符</td>
+</tr>
+</tbody>
+</table>
+<h2 id="量词"><a href="#量词" class="headerlink" title="量词"></a>量词</h2><table>
+<thead>
+<tr>
+<th>量词</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{m,n}</td>
+<td>出现m到n次</td>
+</tr>
+<tr>
+<td>{m}</td>
+<td>出现m次</td>
+</tr>
+<tr>
+<td>{m,}</td>
+<td>至少出现m次</td>
+</tr>
+<tr>
+<td>?</td>
+<td>{0,1}</td>
+</tr>
+<tr>
+<td>+</td>
+<td>{1,}</td>
+</tr>
+<tr>
+<td>*</td>
+<td>{0,}</td>
+</tr>
+</tbody>
+</table>
+<h3 id="贪婪匹配和惰性匹配"><a href="#贪婪匹配和惰性匹配" class="headerlink" title="贪婪匹配和惰性匹配"></a>贪婪匹配和惰性匹配</h3><p>什么是贪婪模式?什么是惰性模式?看完以下两点之后我们举例说明</p>
+<ol>
+<li>默认为贪婪模式,尽可能多的匹配</li>
+<li>贪婪模式转惰性模式: 在量词之后加’?’;<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex:</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="多选分支"><a href="#多选分支" class="headerlink" title="多选分支"></a>多选分支</h2><p>多个子模式任选其一</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var regex = /good|nice/g;</span><br><span class="line">var string = &quot;good idea, nice try.&quot;;</span><br><span class="line">console.log( string.match(regex) );</span><br><span class="line">// [&apos;good&apos;,&apos;nice&apos;]</span><br></pre></td></tr></table></figure>
+<p>分支匹配也是惰性的,举例如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var regex = /good|goodbye/g;</span><br><span class="line">var string = &quot;goodbye&quot;;</span><br><span class="line">console.log( string.match(regex) );</span><br><span class="line">// [&apos;good&apos;]</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var regex = /goodbye|good/g;</span><br><span class="line">var string = &quot;goodbye&quot;;</span><br><span class="line">console.log( string.match(regex) );</span><br><span class="line">// [&apos;goodbye&apos;]</span><br></pre></td></tr></table></figure>
+<p>他的惰性体现在: 当前面的匹配上了，后面的就不再尝试了!</p>
+<h2 id="阶段实战"><a href="#阶段实战" class="headerlink" title="阶段实战"></a>阶段实战</h2><ol>
+<li>匹配16进制的颜色<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reg = /#([\da-fA-F]&#123;6&#125;|[\da-fA-F]&#123;3&#125;)/</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>需要关注的点: 6和3的位置互换之后,遇到#123456会只返回#123;<br>换一个写法: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reg = /#([\da-f]&#123;3&#125;)&#123;1,2&#125;/gi</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>匹配24小时制时间,例如: 01:59,21:00;分析:<br>首位可以是[0-2],首位是2的时候第二位只能是[0-3];第三位[0-5];第四位[0-9]:</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let reg = /^([2][0-3]|(0|1)\d):[0-5]\d$/g</span><br><span class="line">console.log( reg.test(&quot;02:07&quot;) );</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><p>匹配日期: 2019-09-01(不考虑大小月,2.29,2.30等问题)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var reg = /[0-9]&#123;4&#125;-(0\d|1[0-2])-[0-3][1-9]/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>匹配 html 标签中的id;<br><code>&lt;div id=&quot;container&quot; class=&quot;main&quot;&gt;&lt;/div&gt;</code></p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var reg = /id=&quot;\w+&quot;/</span><br><span class="line">// reg = /id=&quot;.*&quot;/</span><br></pre></td></tr></table></figure>
+<ul>
+<li>保留问题如何直接提取出id的值呢?<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3>掌握字符组和量词就能解决大部分常见的情形，也就是说，当你会了这二者，JavaScript 正则算是入门了。</li>
+</ul>
+
       
 
       
@@ -402,15 +526,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">建站</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hexo + gihubPage</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
               </li>
              
               <li class="article-tag-list-item">
