@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/05/27/%E6%AD%A3%E5%88%99%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%80/</loc>
+    
+    <lastmod>2019-05-27T10:42:22.410Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/03/20/test-article/</loc>
+    
+    <lastmod>2019-05-23T02:07:45.954Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/classify/index/index.html</loc>
     
     <lastmod>2019-05-21T15:47:46.317Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>http://yoursite.com/classify/index.html</loc>
     
     <lastmod>2019-05-21T15:30:42.399Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/03/20/test-article/</loc>
-    
-    <lastmod>2019-05-21T15:10:59.603Z</lastmod>
     
   </url>
   

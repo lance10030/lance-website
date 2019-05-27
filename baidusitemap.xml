@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/2019/05/27/%E6%AD%A3%E5%88%99%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%80/</loc>
+    <lastmod>2019-05-27</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/2019/03/20/test-article/</loc>
-    <lastmod>2019-05-21</lastmod>
+    <lastmod>2019-05-23</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/05/21/pub-sub/</loc>
     <lastmod>2019-05-21</lastmod>

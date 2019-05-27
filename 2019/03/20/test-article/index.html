@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Live long and prosper">
 <meta property="og:description" content="使用githubPages 新建仓库,仓库名 你的用户名+github.io;例如我的仓库名是 lance10030.github.io. 要求源自于 Github Pages. 确保本地配置好了github的ssh, 配置教程. 项目中配置_config.yml,示例如下">
 <meta property="og:locale" content="Ch">
-<meta property="og:updated_time" content="2019-05-21T15:10:59.603Z">
+<meta property="og:updated_time" content="2019-05-23T02:07:45.954Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+githubPages 建站记录">
 <meta name="twitter:description" content="使用githubPages 新建仓库,仓库名 你的用户名+github.io;例如我的仓库名是 lance10030.github.io. 要求源自于 Github Pages. 确保本地配置好了github的ssh, 配置教程. 项目中配置_config.yml,示例如下">
@@ -187,6 +187,10 @@
 <li>主题的详细是用查看<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">hexo-theme-yilia</a>的<code>README</code>文件.</li>
 <li><a href="https://www.zhihu.com/question/24422335" target="_blank" rel="noopener">其他主题推荐</a></li>
 </ul>
+<h3 id="使用-yilia-遇到的问题"><a href="#使用-yilia-遇到的问题" class="headerlink" title="使用 yilia 遇到的问题"></a>使用 yilia 遇到的问题</h3><ol>
+<li>主页文章没有折叠的问题<br>该问题的解决方法是在文章中(.md文件)需要折叠的内容之后加上:<br><code>&lt;!--more--&gt;</code><br>目前没找到自动换行的方法</li>
+<li>搜索部分报模块缺失:<br>主要是跟目录下_config.yml 文件中按照yilia的说明添加的 <code>jsonContent:</code> 的空格问题.yml对空格的要求比较严格;</li>
+</ol>
 
       
 
@@ -428,6 +432,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">建站</a>
